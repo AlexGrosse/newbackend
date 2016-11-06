@@ -31,7 +31,7 @@ app.use('/static', express.static('public'));
 
 // required for passport
 app.use(session({
-    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    secret: 's87ts78daskopcsnkefwuzg234osdfuj23ui4feh72323', // session secret
     resave: true,
     saveUninitialized: true
 }));
@@ -45,3 +45,50 @@ require('./app/routes.js')(app, passport); // load our routes and pass in our ap
 // launch ======================================================================
 app.listen(port);
 console.log('The magic happens on port ' + port);
+
+
+// Old Backend Server.js //
+
+/////////////////////////////   Aufsetzen der SMTP Verbindung   ///////////////////////////////////
+var transporter = nodemailer.createTransport('smtps://m03b3996:FhVLYZaFr2dgRFep@w014a18b.kasserver.com');
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////   Routing der Zugriffe  ///////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+//
+/////////////////////////////       GET         ///////////////////////////////////
+server.get('/v1/congrats',
+    authenticationFunction,
+    congrats.getAllCongrats);
+
+server.get('/v1/congrats/:id',
+    authenticationFunction,
+    congrats.getAllCongratsLimited);
+
+server.get('/v1/sleepingInformation',
+    authenticationFunction,
+    iternaryWorker)   ;
+//
+/////////////////////////////       POST        ///////////////////////////////////
+server.post('/v1/congrats',
+    authenticationFunction,
+    congrats.insertCongrats
+);
+
+server.post('/v1/registration', generatePassword);
+
+server.post('/v1/login2', authenticationFunction);
+
+//
+/////////////////////////////       PUT         ///////////////////////////////////
+
+server.put('/v1/forgottenPasswords', forgottenPassword);
+
+
+/////////////////////////////       STANDARD    ///////////////////////////////////
+server.get('/',
+    function (req, res) {
+        res.send('Hello! The API is at http://localhost:8080/v1/');
+    });
