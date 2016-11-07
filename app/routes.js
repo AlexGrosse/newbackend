@@ -14,6 +14,13 @@ module.exports = function(app, passport, congrats) {
         });
     });
 
+    // PROFILE SECTION =========================
+    app.get('/hotel', isLoggedIn, function (req, res) {
+        res.render('hotel.ejs', {
+            user: req.user
+        });
+    });
+
     // Send Message SECTION =========================
     app.get('/congrats', isLoggedIn, function (req, res) {
         res.render('sendCongrats.ejs', {
@@ -97,13 +104,10 @@ module.exports = function(app, passport, congrats) {
 /////////////////////////////       POST         ///////////////////////////////////
     app.post('/v1/congrats', isLoggedIn, congrats.insertCongrats);
 
-    // app.get('/v1/congrats/:id',
-    //     congrats.getAllCongratsLimited);
+/////////////////////////////       GET        ///////////////////////////////////
+    app.get('/v1/congrats', congrats.getAllCongrats);
 
-/////////////////////////////       POST        ///////////////////////////////////
-//     app.post('/v1/congrats',
-//         congrats.insertCongrats
-//     );
+    app.get('/v1/congrats/:id', congrats.getOneCongratById);
 
 /////////////////////////////       PUT         ///////////////////////////////////
 

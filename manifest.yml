@@ -1,0 +1,7 @@
+applications:
+- name: insight-App
+  command: node server.js
+  memory: 512M
+  instances: 1
+services:
+ - insight-backend
