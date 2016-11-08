@@ -14,8 +14,9 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
-var configDB = require('./config/database.js');
-var congrats = require('./config/congrats.js');
+var configDB        = require('./config/database.js');
+var congrats        = require('./config/congrats.js');
+var userCreation    = require('./config/userCreation.js');
 
 
 // configuration ===============================================================
@@ -23,6 +24,7 @@ mongoose.Promise = global.Promise;
 mongoose.connect(configDB.url); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
+require('./config/userCreation')(userCreation); // pass passport for configuration
 require('./config/congrats')(congrats); // pass congrats for configuration
 
 
@@ -45,14 +47,7 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-require('./app/routes.js')(app, passport, congrats); // load our routes and pass in our app and fully configured passport
+require('./app/routes.js')(app, passport, congrats, userCreation); // load our routes and pass in our app and fully configured passport
 // launch ======================================================================
 app.listen(port);
 console.log('The magic happens on port ' + port);
-
-
-// Old Backend Server.js //
-
-/////////////////////////////   Aufsetzen der SMTP Verbindung   ///////////////////////////////////
-//var transporter = nodemailer.createTransport('smtps://m03b3996:FhVLYZaFr2dgRFep@w014a18b.kasserver.com');
-
