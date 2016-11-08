@@ -1,5 +1,7 @@
 const LocalStrategy    = require('passport-local').Strategy;
 const User             = require('../app/models/user');
+const generator        = require('generate-password');
+const validator        = require('validator');
 
 module.exports = function(passport) {
 
@@ -41,130 +43,36 @@ module.exports = function(passport) {
 
     passport.use('local-signup', new LocalStrategy({
         usernameField : 'email',
-        passwordField : 'password',
         passReqToCallback : true
     },
 
-    function(req, email, password, done) {
+    function(req, email, done) {
         if (email)
             email = email.toLowerCase();
 
         // asynchronous
         process.nextTick(function() {
             if (!req.user) {
-                User.findOne({ 'local.email' :  email }, function(err, user) {
+                console.log('bla1');
+                User.findOne({ 'local.email' :  email + '@mhp.com'}, function(err, user) {
                     if (err)
+                        console.log('bla4');
                         return done(err);
                     if (user) {
+                        console.log('bla2');
                         return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                     } else {
+                        console.log('bla3');
                         var newUser            = new User();
-                        newUser.local.email     = email;
-                        newUser.local.firstname = "";
-                        newUser.local.lastname = "";
-                        newUser.local.salt = "";
-                        //include new password and email function
-                        // old serverJS
-/////////////////////////////   Registrierung eines Users / /////////////////////////////
-// function generatePassword(req, res, next) {
-//
-//     var email, first, hashedPassword, surname, inputEmail, realFirstName, realSurname, realTitle
-//     var parameters = {};
-//
-//     // Kombinieren des übertragenen Namens mit @mhp.com
-//     // Erwartetes Ergebnis: vorname.nachname@mhp.com
-//     // ICH ERSCHAFFE FRANKENSTEIN!!!!
-//     email = req.params.name + '@mhp.com'
-//
-//
-//     if (validator.isEmail(email)) {
-//         // whoa, war doch nur ne E-Mail :)
-//         inputEmail = req.body.name;
-//         var arr = inputEmail.toString().split(".")
-//
-//         //
-//         // Jetzt noch die Prüfung ob auch wirklich das Format eingehalten wurde ...
-//         if (arr.length == 2) {
-//
-//             //
-//             // Extrahieren des Vornamens und Nachnamens
-//             firstname = arr[0]
-//             surname = arr[1]
-//
-//             //
-//             // Generierung eines Passworts
-//             var password = generator.generate({
-//                 length: 5,
-//                 numbers: true
-//             });
-//
-//             async.series([
-//                     // Auslesen des normalisierten Nutzernamens
-//                     function (callback) {
-//                         db.get().query('SELECT vorname, nachname, titel FROM employee where EMail = ?', email, function (err, rows, fields) {
-//                             if (err) {
-//
-//                                 console.error('CONNECTION error: ', err);
-//                                 res.statusCode = 503;
-//                                 res.send({
-//                                     result: 'error',
-//                                 });
-//                                 return next();
-//                             }
-//                             else {
-//
-//                                 // Es sollte nur ein Objekt geben ..
-//                                 if (rows.length == 1) {
-//                                     realFirstName = rows[0].vorname
-//                                     realSurname = rows[0].nachname
-//                                     realTitle = rows[0].titel
-//
-//                                     callback();
-//                                 }
-//                                 else {
-//                                     callback('Error: DB');
-//                                 }
-//
-//
-//                             }
-//                         });
-//                     },
-//
-//                     // Generieren eines Password Hashes
-//                     function (callback) {
-//                         //
-//                         // Im ersten Schritt wird ein Passwort und ein Salt generiert
-//                         //
-//                         // Im ersten Schritt wird ein Passwort und ein Salt generiert
-//                         bcrypt.genSalt(5, function (err, salt) {
-//                             bcrypt.hash(password, salt, function (err, hash) {
-//                                 hashedPassword = hash;
-//                                 callback();
-//                             });
-//                         });
-//
-//                     },
-//
-//                     // Eintrag des Users und Versand der E-Mail
-//                     function (callback) {
-//
-//                         // Anschließend erfolgt das Speichern in der Datenbank
-//                         var values = {
-//                             firstname: realFirstName,
-//                             lastname: realSurname,
-//                             title: realTitle,
-//                             password: hashedPassword,
-//                             email: email
-//                         }
-//
-//                         // Ist das eine sichere Methode um die User zu speichern?
-//                         db.get().query('INSERT INTO users SET ?', values, function (err, result) {
-//                             if (err) {
-//                                 console.error('Error: ', err);
-//                                 callback(err);
-//                             }
-//                             else {
-//
+                        var DbEmail = email + '@mhp.com';
+                        if (validator.isEmail(DbEmail)) {
+                            var password = generator.generate({
+                            length: 5,
+                            numbers: true
+                            });
+                        }
+                        console.log('User: ', email,  ' Passwort: ', password);
+
 //                                 // send mail with defined transport object
 //                                 // setup e-mail data with unicode symbols
 //                                 var mailOptions = {
@@ -181,28 +89,7 @@ module.exports = function(passport) {
 //                                     }
 //                                     console.log('Message sent: ' + info.response);
 //                                 });
-//
-//                                 callback();
-//                             }
-//                         })
-//                     }
-//
-//                 ],
-//                 function (err) { //This function gets called after the two tasks have called their "task callbacks"
-//                     if (err) { res.json({ succes: 'false' }) }
-//                     else { res.json({ succes: 'true' }) }
-//                 });
-//         }
-//         else {
-//             res.json({ error: 'Name not valid' })
-//         }
-//     }
-//     else {
-//         res.json({ error: 'E-Mail not valid' })
-//     }
-//     return next();
-// }
-//
+                        newUser.local.email     = DbEmail;
                         newUser.local.password = newUser.generateHash(password);
 
                         newUser.save(function(err) {
@@ -216,6 +103,7 @@ module.exports = function(passport) {
                 });
             } else if ( !req.user.local.email ) {
                 User.findOne({ 'local.email' :  email }, function(err, user) {
+                    console.log('bla4');
                     if (err)
                         return done(err);
                     if (user) {

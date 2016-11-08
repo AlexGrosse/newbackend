@@ -1,39 +1,24 @@
 <!doctype html>
 <html>
-<head>
-    <title>MHP | Insight</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-</head>
-<body>
-<div class="container">
-<div class="col-sm-6 col-sm-offset-3">
-
-
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<section class="is-offset-6 is-4 center width">
+    <img src="IMG/mhp_logo.svg"/>
+    <span class="insightMHP">MHP</span>
+    <span class="insight">Insight 2016</span>
     <% if (message.length > 0) { %>
         <div class="alert alert-danger"><%= message %></div>
     <% } %>
-
-    <!-- LOGIN FORM -->
     <form action="/login" method="post">
-        <div class="form-group">
-            <label>Email</label>
-            <input type="text" class="form-control" name="email">
-        </div>
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control" name="password">
-        </div>
-
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
+        <p class="control">
+            <input class="input inputfield" type="text" placeholder="User" name="email"/>
+        </p>
+        <p class="control">
+            <input class="input inputfield" type="password" placeholder="Password" name="password"/>
+        </p>
+        <button type="submit" class="button is-success Loginbtn">Login</button>
     </form>
-
-    <hr>
-
-    <p><a href="/signup">Regestrieren</a></p>
-
-
-</div>
-</div>
-</body>
+    <span class="center">
+            <p><a href="/signup">Registrieren</a></p>
+        </span>
+</section>
 </html>

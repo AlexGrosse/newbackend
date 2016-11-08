@@ -17,8 +17,10 @@
     "passport-google-oauth": "~1.0.0",
     "passport-local": "~1.0.0",
     "passport-twitter": "~1.0.4",
+    "generate-password": "^1.2.0",
     "react-motion": "^0.4.5",
     "react-swipeable-views": "^0.8.0",
-    "nodemailer" : "^2.6.4"
+    "nodemailer" : "^2.6.4",
+    "validator": "^6.0.0"
   }
 }

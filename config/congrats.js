@@ -10,7 +10,6 @@ module.exports = function(congrats) {
         Congrats.count({}, function(err,count) {
             if(err) done(err);
             else{
-                console.log(count);
                 var arr = req.body.email.toString().split("@");
                 newCongrat.id = count + 1;
                 newCongrat.UserID = arr[0];
@@ -37,7 +36,7 @@ module.exports = function(congrats) {
             res.header('Access-Control-Allow-Headers', 'Content-Type');
             res.set('content-type', 'application/json; charset=utf-8');
             console.log(congrats);
-            res.json({congrats});
+            res.json({ congrats });
             return next();
         });
     };
