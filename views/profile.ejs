@@ -22,33 +22,29 @@
                 <h3><span class="fa fa-user"></span> Local</h3>
 
                 <% if (user.local.email) { %>
-                    <p>
-                        <strong>id</strong>: <%= user._id %><br>
-                        <strong>email</strong>: <%= user.local.email %><br>
-                        <strong>password</strong>: <%= user.local.password %>
-                    </p>
-                    
-                    <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                <p>
+                    <strong>id</strong>: <%= user._id %><br>
+                    <strong>email</strong>: <%= user.local.email %><br>
+                    <strong>password</strong>: <%= user.local.password %>
+                </p>
+
+                <a href="/unlink/local" class="btn btn-default">Unlink</a>
                 <% } else { %>
-                    <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                <a href="/connect/local" class="btn btn-default">Connect Local</a>
                 <% } %>
 
             </div>
         </div>
-        <SwipeableViews>
-            <div>
-                slide n°1
-            </div>
-            <div>
-                slide n°2
-            </div>
-            <div>
-                slide n°3
-            </div>
-        </SwipeableViews>
+        <swipe-pages>
+            <swipe-page>I am page 0
+                <swipe-page>
+                    <swipe-page>I am page 1
+                        <swipe-page>
+                            <swipe-page>I am page 2
+                                <swipe-page>
+        </swipe-pages>
 
 
-
-</div>
+    </div>
 </body>
 </html>
