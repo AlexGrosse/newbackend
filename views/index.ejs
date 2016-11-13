@@ -1,9 +1,21 @@
 <!doctype html>
+
+<script type="text/javascript">
+    /* Fade style by Alex */
+
+    setTimeout("document.getElementById(\"bye\").style.display = \"none\";", 5000);
+    setTimeout("document.getElementById(\"hi\").style.display = \"block\";", 5000);
+
+
+</script>
+
+
 <html>
 <link href="/css/style.css" rel="stylesheet" type="text/css">
 <img class="logo" src="IMG/MHP_LOGO_w.svg"/>
 <br/>
-<div class="insightCenter">
+<div id="bye" style="font-size: 24px">Willkommen</div>
+<div id="hi" style="display: none;" class="insightCenter">
     <div class="insightMHP">MHP</div>
     <div class="insight">Insight 2016</div>
 </div>
@@ -11,6 +23,7 @@
     <form action="/login" method="post">
         <p class="control">
             <input class="input inputfield" type="text" placeholder="Vorname.Nachname" name="email"/>
+
         </p>
         <p class="control">
             <input class="input inputfield" type="password" placeholder="Password" name="password"/>
@@ -18,8 +31,8 @@
         <button type="submit" class="button is-success Loginbtn">Login</button>
     </form>
     <span class="center">
-        <p class="passreset"><a href="#">Passwort vergessen?</a></p>
-            <p><a href="/signup">Registrieren</a></p>
+        <p><a style="color: #fff;" class="sekLink" href="#">Passwort vergessen?</a></p>
+            <p ><a  style="color: grey;"class="sekLink" href="/signup">Registrieren</a></p>
         </span>
 </section>
 </html>

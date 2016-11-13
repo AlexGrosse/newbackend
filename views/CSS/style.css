@@ -1,18 +1,12 @@
 html{
     background-color: #0D2843;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
     color: #fff;
 }
 
 
 body{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 400px;
-    min-width: 200px;
     text-align: center;
+    background-color: #0D2843;
 }
 
 input::-webkit-input-placeholder {
@@ -33,15 +27,15 @@ input:-ms-input-placeholder {
 
 .logo {
     width: 150px;
-    margin-top: 25%;
-    margin-bottom: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 
 }
 .insightCenter{
-    width: 70%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10%;
+    width: 270px;
 }
 
 .insight {
@@ -61,17 +55,27 @@ input:-ms-input-placeholder {
     float: left;
 }
 
+.formEmail {
+    float: right;
+    border-bottom: 1px solid;
+    width: auto;
+    font-size: 16px;
+    height: 27px;
+    padding-top: 5px;
+}
+
 /* Login */
 .Loginbtn {
-    background-color: #0D2843;
-    border: 1px solid #fff;
-    box-shadow: 5px 10px 15px #000;
-    color: #ffffff;
-    font-size: 16px;
-    height: 30px;
-    max-width: 400px;
-    width: 400px;
-
+    background-color: #0D2843!important;
+    border: 1px solid #fff!important;
+    box-shadow: 5px 10px 15px #000!important;
+    color: #ffffff!important;
+    font-size: 16px!important;
+    height: 30px!important;
+    width: 250px!important;
+    margin-top: 3%!important;
+    text-shadow: none!important;
+    padding: 0px;
 }
 
 .inputfield {
@@ -84,11 +88,26 @@ input:-ms-input-placeholder {
     color: #fff;
     font-size: 16px;
     height: 30px;
-    max-width: 400px;
-    margin-bottom: 5%;
-    width: 400px;
+    width: 250px;
 }
  .passreset{
      color: grey;
      font-size: 14px;
+ }
+
+ .sekLink{
+     text-decoration: none;
+ }
+
+ .pagestyle{
+     background-color: #0D2843;
+     color: #fff;
+     text-shadow: none!important;
+ }
+.webkit{
+    text-align: -webkit-center;
+    text-align: -moz-center
+}
+ .formstyle{
+     width: 250px;
  }

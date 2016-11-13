@@ -1,28 +1,84 @@
 <!doctype html>
 <html>
-    <link href="/css/style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+<head>
+    <title>MHP | in</title>
+    <meta name="viewport" content="width=device-width,height=device-height,minimum-scale=1,maximum-scale=1"/>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css"/>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+</head>
+<script type="text/javascript">
+    $(document).on('swipeleft', '.ui-page', function (event) {
+        if (event.handled !== true)
+        {
+            var nextpage = $.mobile.activePage.next('[data-role="page"]');
+            if (nextpage.length > 0) {
+                $.mobile.changePage(nextpage, {transition: "slide", reverse: false}, true, true);
+            }
+            event.handled = true;
+        }
+        return false;
+    });
 
-    <div class="page-header text-center">
-        <a href="/hotel">Agenda</a>
-        <a href="/hotel">Hotel</a>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    $(document).on('swiperight', '.ui-page', function (event) {
+        if (event.handled !== true)
+        {
+            var prevpage = $(this).prev('[data-role="page"]');
+            if (prevpage.length > 0) {
+                $.mobile.changePage(prevpage, {transition: "slide", reverse: true}, true, true);
+            }
+            event.handled = true;
+        }
+        return false;
+    });
+</script>
+<link href="/css/style.css" rel="stylesheet" type="text/css">
+<body>
+<!-- Nav -->
+<div class="page-header text-center">
+    <a href="/hotel">Agenda</a>
+    <a href="/hotel">Hotel</a>
+    <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+</div>
+<!-- Nav Ende -->
+<!-- Agenda -->
+<div data-role="page" id="article1" class="pagestyle">
+    <div data-role="content">
+        <div>Agenda</div>
+        <div></div>
     </div>
-                 <form action="/v1/congrats" method="post">
-                        <div class="form-group">
-                            <label>User</label>
-                            <input type="text" class="form-control" value=<%= user.local.email %> name="email" readonly>
-                        </div>
-                        <div class="form-group">
-                            <label>Nachricht</label>
-                            <input type="text" class="form-control" name="text">
-                        </div>
-
-                        <button type="submit" class="btn btn-warning btn-lg">Senden</button>
-                    </form>
+</div>
+<!-- Agenda Ende-->
+<!-- Hotel Info -->
+<div data-role="page" id="article2" class="pagestyle">
+    <div data-role="content">
+        <p>Hotel</p>
+    </div>
+</div>
+<!-- Hotel Ende -->
+<!-- Bahn -->
+<div data-role="page" id="article3" class="pagestyle">
+    <div data-role="content">
+        <p>Bahn/Taxi</p>
+    </div>
+</div>
+<!-- Bahn Ende-->
+<!-- Congrats -->
+<div data-role="page" id="article4" class="pagestyle">
+    <div data-role="content" class="webkit">
+        <form action="/v1/congrats" method="post" class="formstyle">
+            <div class="form-group">
+                <label>User</label>
+                <input type="text" class="form-control" value=<%= user.local.email %> name="email" readonly>
             </div>
-        </div>
+            <div class="form-group">
+                <label>Nachricht</label>
+                <textarea type="text" class="form-control" placeholder="Deine Nachricht" name="text"></textarea>
+            </div>
+
+            <button type="submit" class="button Loginbtn btn btn-lg">Senden</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>
