@@ -1,16 +1,323 @@
 <!doctype html>
 <html>
 <head>
-    <title>MHP | in</title>
+    <title>MHP | insight</title>
     <meta name="viewport" content="width=device-width,height=device-height,minimum-scale=1,maximum-scale=1"/>
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css"/>
     <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
+<style>
+    html {
+        background-color: #0D2843;
+        color: #fff;
+        text-shadow: none!important;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    body {
+        text-align: center;
+        background-color: #0D2843;
+    }
+
+    input::-webkit-input-placeholder {
+        color: #fff !important;
+    }
+
+    input:-moz-placeholder { /* Firefox 18- */
+        color: #fff !important;
+    }
+
+    input::-moz-placeholder { /* Firefox 19+ */
+        color: #fff !important;
+    }
+
+    input:-ms-input-placeholder {
+        color: #fff !important;
+    }
+    textarea {
+        height: 300px;
+        resize: none;
+
+    }
+
+    .logo {
+        width: 70px;
+        margin-top: 2%;
+        margin-bottom: 2%;
+
+    }
+
+    .insightCenter {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        width: 270px;
+    }
+
+    .insight {
+        font-size: 36px;
+        font-weight: 200;
+        text-align: left;
+
+    }
+
+    .insightMHP {
+        font-size: 36px;
+        text-align: center;
+        font-weight: 200;
+        font-family: bold;
+        margin-right: 2%;
+        text-align: center;
+        float: left;
+    }
+
+    .formEmail {
+        float: right;
+        border-bottom: 1px solid;
+        width: auto;
+        font-size: 16px;
+        height: 27px;
+        padding-top: 5px;
+    }
+
+    /* Login */
+    .Loginbtn {
+        background-color: #fff !important;
+        border: 1px solid #fff !important;
+        color: #494949 !important;
+        font-size: 16px !important;
+        height: 30px !important;
+        width: 250px !important;
+        margin-top: 3% !important;
+        text-shadow: none !important;
+        padding: 0px;
+        font-family: roboto!important;
+
+    }
+
+    .inputfield {
+        border: 0px;
+        box-shadow: none;
+        border-bottom: 1px solid;
+        border-bottom-color: #fff;
+        border-radius: 0px;
+        background-color: #0D2843;
+        color: #fff;
+        font-size: 16px;
+        height: 30px;
+        width: 250px;
+    }
+
+    .passreset {
+        color: grey;
+        font-size: 14px;
+    }
+
+    .sekLink {
+        text-decoration: none;
+    }
+
+    .pagestyle {
+        background-color: #0D2843;
+        color: #fff;
+        text-shadow: none !important;
+    }
+
+    .webkit {
+        text-align: -webkit-center;
+        text-align: -moz-center
+    }
+
+    .formstyle {
+        width: 250px;
+    }
+
+    /* Agenda */
+    .page {
+        padding-left: 3px !important;
+        padding-right: 25px !important;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+
+    .box1 {
+        border: 1px solid #fff;
+        width: 100%;
+        margin: 1px;
+        clear: both;
+        min-height: 80px;
+        padding: 5px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 5px;
+        margin: 5px;
+        background: rgba(255, 255, 255, 1);
+        color: black;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+
+    .box2 {
+        width: 30%;
+        min-height: 50px;
+        float: left;
+        text-shadow: none!important;
+        text-align: bold;
+        font-family: roboto!important;
+        font-weight: bold;
+        margin-top: 12px;
+        font-size: 24px;
+    }
+
+    .box3 {
+        width: 30%;
+        float: left;
+        min-width: 200px;
+        text-align: left;
+        text-shadow: none!important;
+        font-family: roboto!important;
+        font-size: 24px;
+        margin-top: 12px;
+    }
+
+    .box4 {
+        width: 30%;
+        float: left;
+        min-width: 200px;
+        text-align: left;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+
+    .mainhotelbox {
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        height: 170px;
+        min-width: 300px;
+        max-width: 450px;
+        width: 100% !important;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-top: -5px;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+
+    .hotelbox {
+        font-size: 16px;
+        color: gray;
+        text-align: left;
+        margin-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+
+    .hotelbox2 {
+        font-size: 12px;
+        color: gray;
+        text-align: left;
+        margin-left: 20px;
+        padding-bottom: 10px;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+
+    .checkinout {
+        color: gray;
+        font-size: 12px;
+        margin: 2px;
+        margin-left: 20px;
+        text-align: left;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+
+    .hotelbtn {
+        width: 120px !important;
+        height: 30px;
+        padding: 0px !important;
+        border: 1px solid gray;
+        margin: 10px;
+        text-shadow: none!important;
+        background: #fff;
+        font-family: roboto!important;
+    }
+
+    .hotellogo {
+        min-width: 300px;
+        max-width: 450px;
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-family: roboto!important;
+    }
+
+    .btncenter {
+        text-align: -webkit-center;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+/* Shuttle Line */
+
+    .mainshuttlebox{
+        height: 70px;
+        width: 100%;
+        background-color: #F2C94C;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        ext-align: right;
+        font-size: 72px;
+        float: right;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+
+    .box10{
+        background: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        border-left-width: 0px;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        padding-bottom: 10px;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+    .halte{
+        border-radius: 50%;
+        background-color: gray;
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
+        float: left;
+        margin-top: 2px;
+        text-shadow: none!important;
+        font-family: roboto!important;
+    }
+    .nav{
+        font-size: 24px;
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-family: roboto!important;
+    }
+</style>
 <script type="text/javascript">
     $(document).on('swipeleft', '.ui-page', function (event) {
-        if (event.handled !== true)
-        {
+        if (event.handled !== true) {
             var nextpage = $.mobile.activePage.next('[data-role="page"]');
             if (nextpage.length > 0) {
                 $.mobile.changePage(nextpage, {transition: "slide", reverse: false}, true, true);
@@ -21,8 +328,7 @@
     });
 
     $(document).on('swiperight', '.ui-page', function (event) {
-        if (event.handled !== true)
-        {
+        if (event.handled !== true) {
             var prevpage = $(this).prev('[data-role="page"]');
             if (prevpage.length > 0) {
                 $.mobile.changePage(prevpage, {transition: "slide", reverse: true}, true, true);
@@ -32,8 +338,8 @@
         return false;
     });
 </script>
-<link href="/css/style.css" rel="stylesheet" type="text/css">
-<body>
+<link href="views//css/style.css" rel="stylesheet" type="text/css">
+<body style="font-family: Roboto!important;">
 <!-- Nav -->
 <div class="page-header text-center">
     <a href="/hotel">Agenda</a>
@@ -43,42 +349,139 @@
 <!-- Nav Ende -->
 <!-- Agenda -->
 <div data-role="page" id="article1" class="pagestyle">
-    <div data-role="content">
-        <div>Agenda</div>
+    <div style="width:100%; height: 50px; background-color:#fff;text-align: left;font-size: 18px;font-family: roboto!important;">
+        <img style="height: 18px; margin-left: 17px; margin-top: 17px; float: left;" src="views/IMG/mhp_bildmarke.svg">
+        <div style="float: left;color: gray;font-family: roboto;margin-right: 11px;margin-left: 3%;margin-top: 15px;font-weight: bold;">MHP</div>
+        <div style="color: gray;padding-top: 15px;font-family: roboto;font-weight: lighter;">Insight 2016</div>
+    </div>
+    <div data-role="content" style="padding-left: 3px;padding-right: 25px;">
+        <div class="nav" style="margin-bottom: 3%;">Agenda</div>
+
+        <div class="box1">
+            <div class="box2">9:00</div>
+            <div class="box3">Begrüßung</div>
+            <div class="box4">business</div>
+        </div>
+
+        <div class="box1">
+            <div class="box2">9:30</div>
+            <div class="box3">Mehr Begrüßung</div>
+            <div class="box4">business</div>
+        </div>
+
+        <div class="box1">
+            <div class="box2">10:00</div>
+            <div class="box3"> Noch mehr Begrüßung</div>
+            <div class="box4">business</div>
+        </div>
+
+        <div class="box1">
+            <div class="box2">11:00</div>
+            <div class="box3">Begrüßung</div>
+            <div class="box4">business</div>
+        </div>
+
+        <div class="box1">
+            <div class="box2">12:00</div>
+            <div class="box3">Begrüßung</div>
+            <div class="box4">business</div>
+        </div>
+
+        <div class="box1">
+            <div class="box2">14:00</div>
+            <div class="box3">Begrüßung</div>
+            <div class="box4">business</div>
+        </div>
         <div></div>
     </div>
 </div>
 <!-- Agenda Ende-->
 <!-- Hotel Info -->
 <div data-role="page" id="article2" class="pagestyle">
-    <div data-role="content">
-        <p>Hotel</p>
+    <div style="width:100%; height: 50px; background-color:#fff;text-align: left;font-size: 18px;font-family: roboto!important;">
+        <img style="height: 18px; margin-left:  17px; margin-top: 17px; float: left;" src="views/IMG/mhp_bildmarke.svg">
+        <div style="float: left;color: gray;font-family: roboto;margin-right: 11px;margin-left: 3%;margin-top: 15px;font-weight: bold;">MHP</div>
+        <div style="color: gray;padding-top: 15px;font-family: roboto;font-weight: lighter;">Insight 2016</div>
+    </div>
+    <div data-role="content" style="padding-left: 11px; text-shadow: none!important;">
+        <p class="nav">Unterkunft</p>
+        <img class="hotellogo" src="views/IMG/hotel-yurbban-trafalgar.jpg">
+        <div class="mainhotelbox">
+            <div class="hotelbox">Ibis City</div>
+            <div class="hotelbox2">Presselstraße 15 70191 Stuttgart</div>
+            <div class="checkinout">Checkin: ab 13:00</div>
+            <div class="checkinout">Checkout: bis 11:00</div>
+            <div class="btncenter">
+                <button style="float: left; margin-top: 0px;background: #fff; text-shadow: none!important;" class="hotelbtn" onclick="location.href='https://www.google.de/maps/place/Presselstra%C3%9Fe+15,+70191+Stuttgart/@48.8011564,9.1822838,17z/data=!3m1!4b1!4m5!3m4!1s0x4799dad4038be55b:0xcc8c6e0a1ba64f6!8m2!3d48.8011564!4d9.1844725'">Navigation</button>
+                <button style="margin-bottom: 10px; margin-top: 10px; background:#fff;text-shadow: none!important;" class="hotelbtn" onclick="href='tel:0711 255510'">Call</button>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Hotel Ende -->
 <!-- Bahn -->
 <div data-role="page" id="article3" class="pagestyle">
+    <div style="width:100%; height: 50px; background-color:#fff;text-align: left;font-size: 18px;font-family: roboto!important;">
+        <img style="height: 18px; margin-left:  17px; margin-top: 17px; float: left;" src="views/IMG/mhp_bildmarke.svg">
+        <div style="float: left;color: gray;font-family: roboto;margin-right: 11px;margin-left: 3%;margin-top: 15px;font-weight: bold;">MHP</div>
+        <div style="color: gray;padding-top: 15px;font-family: roboto;font-weight: lighter;">Insight 2016</div>
+    </div>
     <div data-role="content">
-        <p>Bahn/Taxi</p>
+        <p class="nav">Dein Shuttle</p>
+        <div class="box10">
+            <div class="mainshuttlebox" style="text-align: right; font-size: 72px; float: left; padding-bottom: 2%;">
+                <div style="float: right; margin-right: 10px;">2</div>
+                <div style="font-size: 24px; float: right; margin-top: 47px;margin-right: 10px;">LINIE</div>
+            </div>
+            <div style="    text-align: left;color: #494949;margin-left: 20px;padding-top: 100px;">Ziel</div>
+            <div class="hotelbox" style="font-size: 18px;">Ibis City</div>
+            <div style="color: gray; text-align: left; padding-left: 20px;font-size: 12px">Abfahrinterval: circa alle 10 Minuten</div>
+            <div style="color: gray; text-align: left; padding-left: 20px;font-size: 12px; margin-bottom: 20px">von <strong>10:00</strong> bis <strong>22:00</strong></div>
+            <hr style="width: 90%; opacity: 0.6;">
+            <div style="color: #494949; margin-bottom: 15px;text-align: left;margin-left: 20px; margin-top: 20px; font-size: 16px; font-size: 13px;">ZWISCHENHALTE</div>
+            <div class="halte" style="background-color: lightgray;"></div><div style="color: #494949; margin-bottom: 10px;    font-size: 14px;width: 45%;padding-top: 1px;text-align: left;margin-left: 12%;">Porsche Stadion</div>
+            <div class="halte" style="background-color: lightgray;"></div><div style="color: #494949; margin-bottom: 10px;    font-size: 14px;width: 45%;padding-top: 1px;text-align: left; margin-left: 12%;">Porsche-Arena</div>
+            <div class="halte"></div><div style="color: #494949; margin-bottom: 10px;    font-size: 14px;width: 45%;padding-top: 1px;text-align: left;margin-left: 12%;">Endstation Presselstraße</div>
+            <hr style="width: 90%; opacity: 0.6;    margin-top: 20px;margin-bottom: 20px;">
+            <div style="color: #494949; text-align: justify; padding-left: 20px; padding-right: 20px; font-size: 16px;"><div style="text-align: left!important;" ><strong>Anreise mit den öffentlichen Verkehrsmittel</strong> </div> <br />
+                <p>Der Bus hält direkt vor der Porsche Arena an der Haltestelle NeckarPark (Stadion), die S-Bahnhaltestelle (NeckarPark) ist ca. 10 min. von der Porsche-Arena entfernt. Unter www.vvs.de findest du die jeweiligen Fahrpläne. Fahrten mit öffentlichen Verkehrsmitteln kannst du über die Reisekosten abrechnen. </p>
+                <strong>Anreise mit dem CompanyCar</strong><br />
+                <p>Falls du mit dem CompanyCar anreist, stehen dir ausgeschilderte MHPInsight Parkplätze auf P10 bei der Porsche-Arena zur Verfügung, welche über das Parkleitsystem angezeigt werden. Dein Auto kannst du am Samstag, den 26.11. bis 14:00 Uhr abholen. Bitte beachte, dass Taxikosten nur für die Rückfahrt abends ab der Mercedes-Benz Arena erstattet werden. Wir möchten dich bitten, deine Anreise im Sinne von MHP zu planen. </p>
+                <strong>Rückfahrt zum Hotel und<br /> Check-in</strong><br />
+                <p>Zwischen 18:15 und 18:45 Uhr bringen dich die Shuttlebusse der Yellow Line "City" zum Ibis City Hotel zu deinem Check-in. Abfahrt ist auf dem Parkplatz vor der Porsche-Arena. </p>
+                        <strong>Anfahrt zur Party</strong><br />
+                <p>Zwischen 19:30 Uhr und 20:00 Uhr bringen dich Shuttlebusse der Yellow Line "City" zur Mercedes-Benz Arena. Abfahrt ist vor dem Ibis City Hotel. </p>
+                            <strong> Rückfahrt von der Party</strong><br />
+                <p>Damit du nach der Party sicher nach Hause kommst, haben wir einen Shuttle-Service eingerichtet. Ab 23:30 Uhr bringen dich die Busse der Yellow Line "City" von der Mercedes-Benz Arena direkt zum Ibis City Hotel. Die Abfahrten sind um 23:30 Uhr, 00:30 Uhr und ab 1:30 Uhr halbstündlich bis 04:00 Uhr. </p>
+                <strong>Samstag – 26.11.</strong><br />
+                <p>Um dein Auto an der Porsche-Arena abzuholen, bringen dich zwischen 9 Uhr und 11 Uhr halbstündlich Shuttlebusse von deinem Hotel zur Porsche-Arena. </p>
+            </div>
+        </div>
     </div>
 </div>
 <!-- Bahn Ende-->
 <!-- Congrats -->
-<div data-role="page" id="article4" class="pagestyle">
-    <div data-role="content" class="webkit">
-        <form action="/v1/congrats" method="post" class="formstyle">
-            <div class="form-group">
-                <label>User</label>
-                <input type="text" class="form-control" value=<%= user.local.email %> name="email" readonly>
+<div style="height: 100%;"data-role="page" id="article4" class="pagestyle">
+    <div style="width:100%; height: 50px; background-color:#fff;text-align: left;font-size: 18px;font-family: roboto!important;">
+        <img style="height: 18px; margin-left:  17px; margin-top: 17px; float: left;" src="views/IMG/mhp_bildmarke.svg">
+        <div style="float: left;color: gray;font-family: roboto;margin-right: 11px;margin-left: 3%;margin-top: 15px;font-weight: bold;">MHP</div>
+        <div style="color: gray;padding-top: 15px;font-family: roboto;font-weight: lighter;">Insight 2016</div>
+    </div>
+    <div style="height: 100%;" data-role="content" class="webkit">
+        <form style="width: 100%; height: 100%; min-width: 250px; max-width: 450px;" action="/congrats" method="post" class="formstyle">
+            <div style="display: none; height:100%;" class="form-group">
+                <label style="display: none">User</label>
+                <input style="display: none" type="text" class="form-control" value=<%= user.local.email %> name="email" readonly>
             </div>
-            <div class="form-group">
+            <div  style="height: 100%" class="form-group">
                 <label>Nachricht</label>
-                <textarea type="text" class="form-control" placeholder="Deine Nachricht" name="text"></textarea>
+                <textarea style="font-family: roboto!important; height:300px!important;" type="text" class="form-control" maxlength="255" placeholder="Deine Nachricht" name="text"></textarea>
             </div>
 
-            <button type="submit" class="button Loginbtn btn btn-lg">Senden</button>
+            <button  style="width: 100%!important;min-width: 250px; max-width: 450px; margin: 0px!important;font-family: roboto!important;  " type="submit" class="button Loginbtn btn btn-lg">Senden</button>
         </form>
     </div>
 </div>
 </body>
 </html>
+

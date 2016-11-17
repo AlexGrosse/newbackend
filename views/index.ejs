@@ -1,18 +1,333 @@
 <!doctype html>
-
+<html>
+<head>
+    <title>MHP | insight</title>
+    <meta name="viewport" content="width=device-width,height=device-height,minimum-scale=1,maximum-scale=1"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
 <script type="text/javascript">
     /* Fade style by Alex */
 
-    setTimeout("document.getElementById(\"bye\").style.display = \"none\";", 5000);
-    setTimeout("document.getElementById(\"hi\").style.display = \"block\";", 5000);
+    setTimeout("document.getElementById(\"bye\").style.display = \"none\";", 2000);
+    setTimeout("document.getElementById(\"hi\").style.display = \"block\";", 2000);
 
 
 </script>
+<style>
+    html {
+        background-color: #0D2843;
+        color: #fff;
+        text-shadow: none !important;
+        font-family: url(fonts/Roboto-Light.tff);
+    }
 
+    body {
+        text-align: center;
+        background-color: #0D2843;
+        font-family: roboto!important;
+    }
 
-<html>
-<link href="/css/style.css" rel="stylesheet" type="text/css">
-<img class="logo" src="IMG/MHP_LOGO_w.svg"/>
+    input::-webkit-input-placeholder {
+        color: #fff !important;
+    }
+
+    input:-moz-placeholder { /* Firefox 18- */
+        color: #fff !important;
+    }
+
+    input::-moz-placeholder { /* Firefox 19+ */
+        color: #fff !important;
+    }
+
+    input:-ms-input-placeholder {
+        color: #fff !important;
+    }
+
+    .logo {
+        width: 70px;
+        margin-top: 2%;
+        margin-bottom: 2%;
+
+    }
+
+    .insightCenter {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        width: 270px;
+        font-family: roboto!important;
+    }
+
+    .insight {
+        font-size: 32px;
+        font-weight: 200;
+        text-align: left;
+        font-family: roboto!important;
+        font-weight: lighter;
+
+    }
+
+    .insightMHP {
+        font-size: 32px;
+        text-align: center;
+        font-weight: 200;
+        font-family: bold;
+        margin-right: 2%;
+        text-align: center;
+        float: left;
+        font-family: roboto!important;
+        font-weight: bold;
+    }
+
+    .formEmail {
+        float: right;
+        border-bottom: 1px solid;
+        width: auto;
+        font-size: 16px;
+        height: 27px;
+        padding-top: 5px;
+        font-family: roboto!important;
+    }
+
+    /* Login */
+    .Loginbtn {
+        background-color: #fff !important;
+        border: 1px solid #fff !important;
+        color: #494949 !important;
+        font-size: 16px !important;
+        height: 30px !important;
+        width: 250px !important;
+        margin-top: 3% !important;
+        text-shadow: none !important;
+        padding: 0px;
+        font-family: roboto!important;
+
+    }
+
+    .inputfield {
+        border: 0px;
+        box-shadow: none;
+        border-bottom: 1px solid;
+        border-bottom-color: #fff;
+        border-radius: 0px;
+        background-color: #0D2843;
+        color: #fff;
+        font-size: 16px;
+        height: 30px;
+        width: 250px;
+        font-family: roboto!important;
+    }
+
+    .passreset {
+        color: grey;
+        font-size: 14px;
+        font-family: roboto!important;
+    }
+
+    .sekLink {
+        text-decoration: none;
+        font-family: roboto!important;
+    }
+
+    .pagestyle {
+        background-color: #0D2843;
+        color: #fff;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .webkit {
+        text-align: -webkit-center;
+        text-align: -moz-center
+        font-family: roboto!important;
+    }
+
+    .formstyle {
+        width: 250px;
+        font-family: roboto!important;
+    }
+
+    /* Agenda */
+    .page {
+        padding-left: 3px !important;
+        padding-right: 25px !important;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .box1 {
+        border: 1px solid #fff;
+        width: 100%;
+        margin: 1px;
+        clear: both;
+        min-height: 80px;
+        padding: 5px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 5px;
+        margin: 5px;
+        background: rgba(255, 255, 255, 1);
+        color: black;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .box2 {
+        width: 30%;
+        min-height: 50px;
+        float: left;
+        text-shadow: none !important;
+        text-align: bold;
+        font-family: roboto!important;
+    }
+
+    .box3 {
+        width: 30%;
+        float: left;
+        min-width: 200px;
+        text-align: left;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .box4 {
+        width: 30%;
+        float: left;
+        min-width: 200px;
+        text-align: left;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .mainhotelbox {
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        height: 170px;
+        min-width: 300px;
+        max-width: 450px;
+        width: 100% !important;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-top: -5px;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .hotelbox {
+        font-size: 16px;
+        color: gray;
+        text-align: left;
+        margin-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .hotelbox2 {
+        font-size: 12px;
+        color: gray;
+        text-align: left;
+        margin-left: 20px;
+        padding-bottom: 10px;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .checkinout {
+        color: gray;
+        font-size: 12px;
+        margin: 2px;
+        margin-left: 20px;
+        text-align: left;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .hotelbtn {
+        width: 120px !important;
+        height: 30px;
+        padding: 0px !important;
+        border: 1px solid gray;
+        margin: 10px;
+        text-shadow: none !important;
+        background: #fff;
+        font-family: roboto!important;
+    }
+
+    .hotellogo {
+        min-width: 300px;
+        max-width: 450px;
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        font-family: roboto!important;
+    }
+
+    .btncenter {
+        text-align: -webkit-center;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    /* Shuttle Line */
+
+    .mainshuttlebox {
+        height: 70px;
+        width: 100%;
+        background-color: #F2C94C;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        ext-align: right;
+        font-size: 72px;
+        float: right;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .box10 {
+        background: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        border-left-width: 0px;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        padding-bottom: 10px;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .halte {
+        border-radius: 50%;
+        background-color: gray;
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
+        float: left;
+        margin-top: 2px;
+        text-shadow: none !important;
+        font-family: roboto!important;
+    }
+
+    .nav {
+        font-size: 24px;
+        text-transform: uppercase;
+        text-decoration: underline;
+        font-family: roboto!important;
+    }
+</style>
+<body>
+<img class="logo" style="width: 70px; margin-top: 10%;margin-bottom: 10%;" src="views/IMG/MHP_LOGO_w.svg"/>
 <br/>
 <div id="bye" style="font-size: 24px">Willkommen</div>
 <div id="hi" style="display: none;" class="insightCenter">
@@ -22,7 +337,7 @@
 <section class="is-offset-6 is-4 center width">
     <form action="/login" method="post">
         <p class="control">
-            <input class="input inputfield" type="text" placeholder="Vorname.Nachname" name="email"/>
+            <input class="input inputfield" type="text" placeholder="Vorname.Nachname@mhp.com" name="email"/>
 
         </p>
         <p class="control">
@@ -31,8 +346,9 @@
         <button type="submit" class="button is-success Loginbtn">Login</button>
     </form>
     <span class="center">
-        <p><a style="color: #fff;" class="sekLink" href="#">Passwort vergessen?</a></p>
-            <p ><a  style="color: grey;"class="sekLink" href="/signup">Registrieren</a></p>
+        <p style="margin-top: 10%;"><a style="color: #fff;" class="sekLink" href="#">Passwort vergessen?</a></p>
+            <p><a style="color: grey;" class="sekLink" href="/signup">Registrieren</a></p>
         </span>
 </section>
+</body>
 </html>

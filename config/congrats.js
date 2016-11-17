@@ -5,11 +5,10 @@ module.exports = function(congrats) {
 
     // Speichern eines Glückwunsches
     congrats.insertCongrats = function insertCongrats(req, res, done) {
-        // create the user
+        // create the congrat
         var newCongrat = new Congrats();
         Congrats.count({}, function(err,count) {
-            if(err) done(err);
-            else{
+            if(err) { done(err); }
                 var arr = req.body.email.toString().split("@");
                 newCongrat.id = count + 1;
                 newCongrat.UserID = arr[0];
@@ -19,12 +18,14 @@ module.exports = function(congrats) {
                 newCongrat.surname  = arr2[1];
                 newCongrat.timestamp = Math.floor(new Date().getDate());
                 newCongrat.save(function (err) {
-                    if (err)
-                        return done(err);
-                    res.redirect('/congrats');
+                    if (err) {
+                        return done(err);}
+                    res.redirect("/congrats");
                 });
-            }
+
         });
+
+
     };
 
     congrats.getAllCongrats = function getAllCongrats(req, res, next) {

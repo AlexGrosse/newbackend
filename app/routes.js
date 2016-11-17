@@ -83,10 +83,10 @@ module.exports = function(app, passport, congrats, userCreation) {
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /////////////////////////////       POST         ///////////////////////////////////
-    app.post('/v1/congrats', isLoggedIn, congrats.insertCongrats);
+    app.post('/congrats', isLoggedIn, congrats.insertCongrats);
 
 /////////////////////////////       GET        ///////////////////////////////////
-    app.get('/v1/congrats', congrats.getAllCongrats);
+    app.get('/v1/allCongrats', congrats.getAllCongrats);
 
     app.get('/v1/congrats/:id', congrats.getOneCongratById);
 

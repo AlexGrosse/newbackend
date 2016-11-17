@@ -1,6 +1,290 @@
 <!doctype html>
 <html>
-<link href="/css/style.css" rel="stylesheet" type="text/css">
+<head>
+    <title>MHP | insight</title>
+    <meta name="viewport" content="width=device-width,height=device-height,minimum-scale=1,maximum-scale=1"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<style>
+    html {
+        background-color: #0D2843;
+        color: #fff;
+        text-shadow: none!important;
+    }
+
+    body {
+        text-align: center;
+        background-color: #0D2843;
+    }
+
+    input::-webkit-input-placeholder {
+        color: #fff !important;
+    }
+
+    input:-moz-placeholder { /* Firefox 18- */
+        color: #fff !important;
+    }
+
+    input::-moz-placeholder { /* Firefox 19+ */
+        color: #fff !important;
+    }
+
+    input:-ms-input-placeholder {
+        color: #fff !important;
+    }
+
+    .logo {
+        width: 70px;
+        margin-top: 2%;
+        margin-bottom: 2%;
+
+    }
+
+    .insightCenter {
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10%;
+        width: 270px;
+    }
+
+    .insight {
+        font-size: 36px;
+        font-weight: 200;
+        text-align: left;
+
+    }
+
+    .insightMHP {
+        font-size: 36px;
+        text-align: center;
+        font-weight: 200;
+        font-family: bold;
+        margin-right: 2%;
+        text-align: center;
+        float: left;
+    }
+
+    .formEmail {
+        float: right;
+        border-bottom: 1px solid;
+        width: auto;
+        font-size: 16px;
+        height: 27px;
+        padding-top: 5px;
+    }
+
+    /* Login */
+    .Loginbtn {
+        background-color: #fff !important;
+        border: 1px solid #fff !important;
+        color: #494949 !important;
+        font-size: 16px !important;
+        height: 30px !important;
+        width: 250px !important;
+        margin-top: 3% !important;
+        text-shadow: none !important;
+        padding: 0px;
+
+    }
+
+    .inputfield {
+        border: 0px;
+        box-shadow: none;
+        border-bottom: 1px solid;
+        border-bottom-color: #fff;
+        border-radius: 0px;
+        background-color: #0D2843;
+        color: #fff;
+        font-size: 16px;
+        height: 30px;
+        width: 250px;
+    }
+
+    .passreset {
+        color: grey;
+        font-size: 14px;
+    }
+
+    .sekLink {
+        text-decoration: none;
+    }
+
+    .pagestyle {
+        background-color: #0D2843;
+        color: #fff;
+        text-shadow: none !important;
+    }
+
+    .webkit {
+        text-align: -webkit-center;
+        text-align: -moz-center
+    }
+
+    .formstyle {
+        width: 250px;
+    }
+
+    /* Agenda */
+    .page {
+        padding-left: 3px !important;
+        padding-right: 25px !important;
+        text-shadow: none!important;
+    }
+
+    .box1 {
+        border: 1px solid #fff;
+        width: 100%;
+        margin: 1px;
+        clear: both;
+        min-height: 80px;
+        padding: 5px;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 5px;
+        margin: 5px;
+        background: rgba(255, 255, 255, 1);
+        color: black;
+        text-shadow: none!important;
+    }
+
+    .box2 {
+        width: 30%;
+        min-height: 50px;
+        float: left;
+        text-shadow: none!important;
+        text-align: bold;
+    }
+
+    .box3 {
+        width: 30%;
+        float: left;
+        min-width: 200px;
+        text-align: left;
+        text-shadow: none!important;
+    }
+
+    .box4 {
+        width: 30%;
+        float: left;
+        min-width: 200px;
+        text-align: left;
+        text-shadow: none!important;
+    }
+
+    .mainhotelbox {
+        background-color: white;
+        margin-left: auto;
+        margin-right: auto;
+        height: 170px;
+        min-width: 300px;
+        max-width: 450px;
+        width: 100% !important;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        margin-top: -5px;
+        text-shadow: none!important;
+    }
+
+    .hotelbox {
+        font-size: 16px;
+        color: gray;
+        text-align: left;
+        margin-left: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        text-shadow: none!important;
+    }
+
+    .hotelbox2 {
+        font-size: 12px;
+        color: gray;
+        text-align: left;
+        margin-left: 20px;
+        padding-bottom: 10px;
+        text-shadow: none!important;
+    }
+
+    .checkinout {
+        color: gray;
+        font-size: 12px;
+        margin: 2px;
+        margin-left: 20px;
+        text-align: left;
+        text-shadow: none!important;
+    }
+
+    .hotelbtn {
+        width: 120px !important;
+        height: 30px;
+        padding: 0px !important;
+        border: 1px solid gray;
+        margin: 10px;
+        text-shadow: none!important;
+        background: #fff;
+    }
+
+    .hotellogo {
+        min-width: 300px;
+        max-width: 450px;
+        width: 100%;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    .btncenter {
+        text-align: -webkit-center;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        text-shadow: none!important;
+    }
+    /* Shuttle Line */
+
+    .mainshuttlebox{
+        height: 70px;
+        width: 100%;
+        background-color: #F2C94C;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        ext-align: right;
+        font-size: 72px;
+        float: right;
+        text-shadow: none!important;
+    }
+
+    .box10{
+        background: #fff;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        padding-left: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        border-left-width: 0px;
+        border-top-width: 0px;
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+        padding-bottom: 10px;
+        text-shadow: none!important;
+    }
+    .halte{
+        border-radius: 50%;
+        background-color: gray;
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
+        float: left;
+        margin-top: 2px;
+        text-shadow: none!important;
+    }
+    .nav{
+        font-size: 24px;
+        text-transform: uppercase;
+        text-decoration: underline;
+    }
+</style>
+<link href="views/css/style.css" rel="stylesheet" type="text/css">
 <section class="is-offset-6 is-4 center width">
 
     <span class="insight">Anmelden</span>
